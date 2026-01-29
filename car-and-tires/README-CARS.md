@@ -25,7 +25,7 @@ A modern, fully-featured e-commerce marketplace for buying and managing cars and
 
 CarHub is a complete cars and tires marketplace solution featuring:
 
-- **Customer Storefront** (`cars.html`) - Browse, search, and filter products
+- **Customer Storefront** (`index.html`) - Browse, search, and filter products
 - **Admin Dashboard** (`cars-admin.html`) - Manage inventory with full CRUD operations
 - **Responsive Design** - Works on mobile, tablet, and desktop
 - **Local Data Storage** - Uses browser localStorage for data persistence
@@ -208,7 +208,7 @@ CarHub is a complete cars and tires marketplace solution featuring:
    ```
 
 2. **Open in browser:**
-   - Storefront: Open `cars.html`
+   - Storefront: Open `index.html`
    - Admin Panel: Open `cars-admin.html`
 
 3. **Using a local server (recommended):**
@@ -222,13 +222,13 @@ CarHub is a complete cars and tires marketplace solution featuring:
    # Ruby
    ruby -run -ehttpd . -p8000
    ```
-   Then open: `http://localhost:8000/car-and-tires/cars.html`
+   Then open: `http://localhost:8000/car-and-tires/index.html`
 
 ---
 
 ## 📖 Usage Guide
 
-### Customer Storefront (cars.html)
+### Customer Storefront (index.html)
 
 #### Browsing Products
 
@@ -362,7 +362,7 @@ CarHub is a complete cars and tires marketplace solution featuring:
 
 ```
 car-and-tires/
-├── cars.html                # Storefront (1,200+ lines)
+├── index.html                # Storefront (1,200+ lines)
 │   ├── Header with search
 │   ├── Navigation tabs
 │   ├── Home section
