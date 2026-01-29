@@ -1,0 +1,258 @@
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #D2B48C;
+    --accent-color: #FF6B6B;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #A0522D 100%);
+    color: white;
+    padding: 1rem 0;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #6B3410 !important;
+}
+
+.nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), 
+                url('https://images.unsplash.com/photo-1633722715463-d30628cff4a9?w=1200&h=400&fit=crop') center/cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--secondary-color);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Section Titles */
+.section-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Breed Card */
+.breed-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.breed-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.breed-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.breed-card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.breed-card-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.breed-card-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.breed-card-traits {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.breed-trait {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.breed-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.breed-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+}
+
+/* Featured Section */
+.featured-section {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+}
+
+/* All Breeds Section */
+.all-breeds-section {
+    padding: 4rem 0;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+}
+
+.accordion-button {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+    border-color: var(--primary-color);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Carousel */
+.carousel-inner {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #6B3410 0%, #5C2E0A 100%);
+    color: white;
+    padding: 2rem 0 0;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.footer-section h6 {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.footer-divider {
+    border-color: #8B4513 !important;
+}
+
+/* Spacing */
+section {
+    margin: 0;
+}
+
+.section-padding {
+    padding: 3rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
