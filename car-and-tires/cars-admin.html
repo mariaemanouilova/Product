@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarHub Admin Panel</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>CarHub Admin</span>
+                </div>
+                <div class="header-actions">
+                    <span class="welcome-text">Welcome, Admin</span>
+                    <a href="cars.html" class="btn btn-sm btn-outline-light" title="Back to Store">
+                        <i class="bi bi-arrow-left"></i> Back to Store
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-wrapper">
+            <!-- Sidebar Navigation -->
+            <nav class="admin-sidebar">
+                <div class="sidebar-header">
+                    <h5>Navigation</h5>
+                </div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-tab="cars">
+                            <i class="bi bi-car-front"></i>
+                            <span>Cars Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="tires">
+                            <i class="bi bi-circle"></i>
+                            <span>Tires Management</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer mt-auto">
+                    <hr>
+                    <div class="stats">
+                        <small>Total Cars: <strong id="carCount">0</strong></small>
+                        <small>Total Tires: <strong id="tireCount">0</strong></small>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="admin-main">
+                <!-- Cars Tab -->
+                <section id="carsTab" class="tab-content active">
+                    <div class="content-header">
+                        <h2><i class="bi bi-car-front"></i> Cars Management</h2>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carModal" onclick="openCarModal('add')">
+                            <i class="bi bi-plus-circle"></i> Add New Car
+                        </button>
+                    </div>
+
+                    <div class="cards-grid" id="carsGrid">
+                        <!-- Cars will be inserted here -->
+                    </div>
+                </section>
+
+                <!-- Tires Tab -->
+                <section id="tiresTab" class="tab-content" style="display: none;">
+                    <div class="content-header">
+                        <h2><i class="bi bi-circle"></i> Tires Management</h2>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tireModal" onclick="openTireModal('add')">
+                            <i class="bi bi-plus-circle"></i> Add New Tire
+                        </button>
+                    </div>
+
+                    <div class="cards-grid" id="tiresGrid">
+                        <!-- Tires will be inserted here -->
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="admin-footer">
+            <div class="footer-content">
+                <p>&copy; 2026 CarHub Admin Panel. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Car Modal -->
+    <div class="modal fade" id="carModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carModalTitle">Add New Car</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="carForm">
+                        <div class="mb-3">
+                            <label class="form-label">Brand</label>
+                            <input type="text" class="form-control" id="carBrand" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Model</label>
+                            <input type="text" class="form-control" id="carModel" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Year</label>
+                            <input type="number" class="form-control" id="carYear" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price ($)</label>
+                            <input type="number" class="form-control" id="carPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Original Price ($)</label>
+                            <input type="number" class="form-control" id="carOriginalPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mileage (KM)</label>
+                            <input type="number" class="form-control" id="carKm" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Color</label>
+                            <input type="text" class="form-control" id="carColor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fuel Type</label>
+                            <select class="form-control" id="carFuel" required>
+                                <option>Petrol</option>
+                                <option>Diesel</option>
+                                <option>Hybrid</option>
+                                <option>Electric</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Transmission</label>
+                            <select class="form-control" id="carTransmission" required>
+                                <option>Manual</option>
+                                <option>Automatic</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Featured</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="carFeatured">
+                                <label class="form-check-label" for="carFeatured">Mark as featured</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmCarAction()">
+                        <i class="bi bi-check-circle"></i> Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tire Modal -->
+    <div class="modal fade" id="tireModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tireModalTitle">Add New Tire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="tireForm">
+                        <div class="mb-3">
+                            <label class="form-label">Brand</label>
+                            <input type="text" class="form-control" id="tireBrand" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Type</label>
+                            <input type="text" class="form-control" id="tireType" placeholder="e.g., All-Season" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Width</label>
+                            <input type="number" class="form-control" id="tireWidth" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Height</label>
+                            <input type="number" class="form-control" id="tireHeight" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Wheel</label>
+                            <input type="number" class="form-control" id="tireWheel" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price ($)</label>
+                            <input type="number" class="form-control" id="tirePrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Original Price ($)</label>
+                            <input type="number" class="form-control" id="tireOriginalPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Warranty</label>
+                            <input type="text" class="form-control" id="tireWarranty" placeholder="e.g., 3 years" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lifespan</label>
+                            <input type="text" class="form-control" id="tireLifespan" placeholder="e.g., 3-5 years" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Featured</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="tireFeatured">
+                                <label class="form-check-label" for="tireFeatured">Mark as featured</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmTireAction()">
+                        <i class="bi bi-check-circle"></i> Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsTitle">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detailsContent">
+                    <!-- Details will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Notifications -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Admin JavaScript -->
+    <script src="admin-script.js"></script>
+</body>
+</html>
