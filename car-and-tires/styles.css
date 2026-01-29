@@ -366,18 +366,18 @@ body {
     border: 1px solid var(--border-color);
     padding: 0.7rem;
     transition: all 0.3s ease;
-    color: white;
+    color: #333;
     background-color: rgba(255,255,255,0.95);
 }
 
 .search-form-section .form-control::placeholder {
-    color: rgba(255,255,255,0.7) !important;
+    color: #6c757d !important;
 }
 
 .search-form-section .form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(37,99,235,0.1);
-    color: white;
+    color: #333;
 }
 
 .search-form-section .btn-primary {
@@ -415,6 +415,7 @@ body {
 .pagination .page-item.active .page-link {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: white;
 }
 
 /* About Section */
